@@ -8,12 +8,10 @@ public class Main<count> {
     private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-
-        //Formula();
-        //task8();//+
-        //task19();//+
+        task8();
+        task19();
         task42();
-        // task63();//+
+        task63();
     }
 
 
@@ -29,8 +27,6 @@ public class Main<count> {
         for (int i = 1; i <= N; i++) {
             System.out.print(C);
         }
-
-
     }
 
     /**
@@ -78,47 +74,31 @@ public class Main<count> {
     private static void task42() {
 
         System.out.println("\n......Задание 42......\n");
+        int count = 0;
+        char b = ' ';
+        char temp = ' ';
+        char t = ' ';
+        String s = "НОН ООН";
+        char[] chars = s.toCharArray();
+        for (int i = 0; i < chars.length; i++) {
 
-        int count=0;
-        char b=' ';
-        char temp=' ';
-        String s = "Хорошо Жить ЖffЖ  LddL";
-        char[] chars= s.toCharArray();
-        for (int i = 0; i < chars.length; i++){
-
-            char c=chars[i];
+            char c = chars[i];
             System.out.println(c);
+            if (chars[i] == b) {
 
-        }
-
-        for (int i = 0; i < chars.length; i++){
-
-            char c=chars[i];
-            if(c==b){
-                b=chars[i];
+                temp = chars[0];
+                t = chars[i - 1];
+                if (temp == t) {
+                    count++;
+                }
             }
-            System.out.println(c);
-
         }
-        System.out.println(count);
-
-    //        if(chars[i]==b)
-    //        {
-    //
-    //
-    //            temp=chars[i];
-    //            if(temp==chars[0])
-    //            {
-    //
-    //            }
-    //            count++;
-    //        }
-    //        System.out.println(c);
+        System.out.println("Количество слов:" + count);
     }
 
 
     /**
-     *63. Дана строка-предложение заданное кириллицей и число K (0 < K < 10).
+     * 63. Дана строка-предложение заданное кириллицей и число K (0 < K < 10).
      * Зашифровать строку, выполнив циклическую замену каждой буквы на букву того же регистра,
      * расположенную в алфавите на K-й позиции после шифруемой буквы
      * (например, для K = 2 «А» перейдет в «В», «а» — в «в», «Б» — в «Г», «я» — в «б» и т. д.).
@@ -131,29 +111,22 @@ public class Main<count> {
         System.out.println("Введите строку-предложение");
         String str = scanner.nextLine();
         System.out.println("Введите число K");
-        int K= scanner.nextInt();
-        int c=0,y=0;
-        String encrypted="";
-        for(int i=0;i<str.length();i++){
+        int K = scanner.nextInt();
+        int c = 0, y = 0;
+        String encrypted = "";
+        for (int i = 0; i < str.length(); i++) {
 
-            c=(str.charAt(i)+K);
-            if(Character.isUpperCase(str.charAt(i))){
-                y=(c-1040)%32+1040;
-            }else{
-                y=(c-1072)%32+1072;
+            c = (str.charAt(i) + K);
+            if (Character.isUpperCase(str.charAt(i))) {
+                y = (c - 1040) % 32 + 1040;
+            } else {
+                y = (c - 1072) % 32 + 1072;
             }
-            encrypted+=(char)y;
+            encrypted += (char) y;
 
         }
-        System.out.println("Зашифрованая строка:"+encrypted);
+        System.out.println("Зашифрованая строка:" + encrypted);
 
     }
-
-    /**
-     * Task number=19
-     * Task number=42
-     * Task number=8
-     * Task number=63
-     */
 
 }
